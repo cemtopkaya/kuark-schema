@@ -1,0 +1,26 @@
+{
+  "name": "kuark-schema",
+  "version": "0.0.1",
+  "description": "Kuark application's json schema",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/index.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cemtopkaya/kuark-schema.git"
+  },
+  "author": "Cem Topkaya <'cem.topkaya@hotmail.com'> (http://Cem.Topkaya.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cemtopkaya/kuark-schema/issues"
+  },
+  "homepage": "https://github.com/cemtopkaya/kuark-schema#readme",
+  "dependencies": {
+    "ajv": "3.8.6"
+  },
+  "devDependencies": {
+    "chai": "3.5.0",
+    "mocha": "2.4.5"
+  }
+}
