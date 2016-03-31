@@ -5,9 +5,7 @@ module.exports = {
     "type": "object",
     "title": "Kurum",
     "definitions": {
-        "Sehir": {
-            "$ref": "/node/schema/ortak/sehir"
-        },
+        "Sehir": { "$ref": "/node/schema/ortak/sehir" },
         "Bolge": {
             "$ref": "/node/schema/ortak/bolge"
         }

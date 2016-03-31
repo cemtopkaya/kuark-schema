@@ -6,6 +6,9 @@ exports.arr = [
     '../schemas/providers/login/index.js',
     '../schemas/dogrulama/index.js',
     // ./ORTAK/
+    '../schemas/ortak/sehir.js',
+    '../schemas/ortak/bolge.js',
+    '../schemas/ortak/ulke.js',
     '../schemas/ortak/anahtarKelime.js',
     '../schemas/ortak/dosyaEki.js',
     '../schemas/ortak/dovizKuru.js',
