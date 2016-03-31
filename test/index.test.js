@@ -1,12 +1,18 @@
 /**
  * Created by cem.topkaya on 16.03.2016.
  */
-var expect = require('chai').expect;
-var schema = require('../index');
+var expect = require('chai').expect,
+    schema = require('../index');
 
 describe('Şemalar ulaşılabilir', function () {
+
     it('Şema objesine erişilebilir', function () {
         expect(schema.SCHEMA.DB.KURUM).to.eql("/node/schema/ortak/kurum_db");
+    });
+
+    it('Şemadan yeni kurum nesnesi yaratılır', function () {
+        var kurum =schema.f_create_default_object(schema.SCHEMA.DB.KURUM);
+        expect(kurum).to.have.property('Id');
     });
 
     it('Tüm schema idlerinden schema bilgisi döner ve schema da tanımlı id ile aynı isimdedirler', function () {

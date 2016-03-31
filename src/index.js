@@ -4,6 +4,7 @@ var Ajv = require('ajv'),
 // Tüm schemalar
     schemas = require('../schemas'),
 // defaults ile nesne yaratırken tüm şemaları bu objede toplayacağız.
+    defaults = require('json-schema-defaults'),
     definitons = {},
     yuklenen_schema_sayisi = 0,
     toplam_schema_sayisi = schemas.arr.length;

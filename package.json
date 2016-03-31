@@ -1,6 +1,6 @@
 {
   "name": "kuark-schema",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Kuark application's json schema",
   "main": "index.js",
   "repository": {
@@ -15,7 +15,7 @@
   "homepage": "https://github.com/cemtopkaya/kuark-schema#readme",
   "dependencies": {
     "ajv": "3.8.6",
-    "json-schema-defaults": "latest"
+    "json-schema-defaults": "^0.1.1"
   },
   "scripts": {
     "yorumlar": "Testin öncesinde (pretest) ekranı temizleyelim cls ile... Test aşamasında watch ile src ve test klasörlerindeki değişimleri takip ederek 'npm run test'' çalışacak... Testin ardından(posttest) eslint yapalımki esas kodu geliştirmede zaman harcamayıp, güzelleştirmeyi peşine bırakmış olalım.",
