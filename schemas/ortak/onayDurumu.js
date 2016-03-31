@@ -16,7 +16,7 @@ module.exports = {
         /** @type {integer} */
         "Id": {
             "type": "integer",
-            "default": 1
+            "default": 2
         },
         /** @type {string} */
         "Baslik": {

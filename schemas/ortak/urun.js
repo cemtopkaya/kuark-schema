@@ -37,6 +37,11 @@ module.exports = {
             "type": "string"
         },
         /** @type {string} */
+        "m2": {
+            "type": "string",
+            "description": "metrekare değerini gösterir"
+        },
+        /** @type {string} */
         "Aciklama": {
             "type": "string"
         },
@@ -66,7 +71,7 @@ module.exports = {
         /** @type {AnahtarKelime[]} */
         "AnahtarKelimeler": {
             "type": "array",
-            "allOf": [{
+            "items": [{
                 "$ref": "#/definitions/AnahtarKelime"
             }],
             "default": []

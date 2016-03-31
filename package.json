@@ -1,8 +1,22 @@
 {
   "name": "kuark-schema",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Kuark application's json schema",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cemtopkaya/kuark-schema.git"
+  },
+  "author": "Cem Topkaya <'cem.topkaya@hotmail.com'> (http://Cem.Topkaya.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cemtopkaya/kuark-schema/issues"
+  },
+  "homepage": "https://github.com/cemtopkaya/kuark-schema#readme",
+  "dependencies": {
+    "ajv": "3.8.6",
+    "json-schema-defaults": "latest"
+  },
   "scripts": {
     "yorumlar": "Testin öncesinde (pretest) ekranı temizleyelim cls ile... Test aşamasında watch ile src ve test klasörlerindeki değişimleri takip ederek 'npm run test'' çalışacak... Testin ardından(posttest) eslint yapalımki esas kodu geliştirmede zaman harcamayıp, güzelleştirmeyi peşine bırakmış olalım.",
     "_______________________________________________________________ ESLINT": "___________",
@@ -10,14 +24,14 @@
     "eslint:w": "esw --watch src/**/*.js",
     "w:eslint": "watch \"npm run eslint\" ./src/ ./test/",
     "_______________________________________________________________ MOCHA": "____________",
-    "mocha": "mocha test/**/*.js --colors --reporter spec",
-    "mocha:w": "mocha test/**/*.js --colors --reporter spec --watch",
+    "mocha": "mocha test/**/*.test.js --colors --reporter spec",
+    "mocha:w": "mocha test/**/*.test.js --colors --reporter spec --watch",
     "w:mocha": "watch \"npm run mocha\" ./src/ ./test/",
     "_______________________________________________________________ TEST": "_____________",
     "__yardim": "http://www.marcusoft.net/2015/08/npm-scripting-git-version-and-deploy.html",
     "pretest": "rm -rf nmp-debug.log",
     "test": "npm run mocha",
-    "posttest": "npm run eslint",
+    "posttest_1": "npm run eslint",
     "test:c": "parallelshell \"npm run mocha:w\" \"npm run eslint:w\"",
     "test:w": "watch \"npm run test\" ./src/ ./test/",
     "_______________________________________________________________ DEVELOPMENT": "______",
@@ -41,19 +55,6 @@
     "prepublish": "",
     "publish": "",
     "postpublish": ""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cemtopkaya/kuark-schema.git"
-  },
-  "author": "Cem Topkaya <'cem.topkaya@hotmail.com'> (http://Cem.Topkaya.com)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/cemtopkaya/kuark-schema/issues"
-  },
-  "homepage": "https://github.com/cemtopkaya/kuark-schema#readme",
-  "dependencies": {
-    "ajv": "3.8.6"
   },
   "devDependencies": {
     "chai": "3.5.0",

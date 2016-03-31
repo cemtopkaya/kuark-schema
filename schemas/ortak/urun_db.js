@@ -29,6 +29,11 @@ module.exports = {
       "type": "string"
     },
     /** @type {string} */
+    "m2": {
+      "type": "string",
+      "description": "metrekare değerini gösterir"
+    },
+    /** @type {string} */
     "Aciklama": {
       "type": "string"
     },

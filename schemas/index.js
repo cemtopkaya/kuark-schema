@@ -83,6 +83,9 @@ exports.SCHEMA = {
         TEKLIF: "/node/schema/ortak/teklif_es",
         KULLANICI: "/node/schema/kullanici/kullanici_es"
     },
+    SEHIR: "/node/schema/ortak/sehir",
+    BOLGE: "/node/schema/ortak/bolge",
+    ULKE: "/node/schema/ortak/ulke",
     INDEX_DOGRULAMA: "/node/schema/dogrulama/index",
     ANAHTAR_KELIME: "/node/schema/ortak/anahtarKelime",
     DOSYA_EKI: "/node/schema/ortak/dosyaEki",
