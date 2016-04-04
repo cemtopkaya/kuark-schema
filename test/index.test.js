@@ -35,4 +35,8 @@ describe('Şemalar ulaşılabilir', function () {
             expect(sch.id).to.eql(schema_id);
         }
     })
+
+    it('SABITlerden birine ulaşabilmek', function () {
+        expect(schema.SABIT.URL_QUERY).to.be.an('object');
+    })
 });
