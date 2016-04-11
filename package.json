@@ -1,6 +1,6 @@
 {
   "name": "kuark-schema",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Kuark application's json schema",
   "main": "index.js",
   "repository": {
@@ -13,10 +13,6 @@
     "url": "https://github.com/cemtopkaya/kuark-schema/issues"
   },
   "homepage": "https://github.com/cemtopkaya/kuark-schema#readme",
-  "dependencies": {
-    "ajv": "3.8.6",
-    "json-schema-defaults": "^0.1.1"
-  },
   "scripts": {
     "yorumlar": "Testin öncesinde (pretest) ekranı temizleyelim cls ile... Test aşamasında watch ile src ve test klasörlerindeki değişimleri takip ederek 'npm run test'' çalışacak... Testin ardından(posttest) eslint yapalımki esas kodu geliştirmede zaman harcamayıp, güzelleştirmeyi peşine bırakmış olalım.",
     "_______________________________________________________________ ESLINT": "___________",
@@ -64,6 +60,10 @@
     "update-kuark-db": "ncu /^kuark-/ -u --packageFile ../kuark-db/package.json && cd ../kuark-db && npm update kuark-schema",
     "update-kuark-extensions": "ncu /^kuark-/ -u --packageFile ../kuark-extensions/package.json && cd ../kuark-extensions && npm update kuark-schema",
     "update-kuark-istisna": "ncu /^kuark-/ -u --packageFile ../kuark-istisna/package.json && cd ../kuark-istisna && npm update kuark-schema"
+  },
+  "dependencies": {
+    "ajv": "3.8.6",
+    "json-schema-defaults": "0.1.1"
   },
   "devDependencies": {
     "chai": "3.5.0",
