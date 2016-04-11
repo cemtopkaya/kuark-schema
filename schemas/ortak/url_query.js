@@ -1,3 +1,4 @@
+//noinspection JSValidateTypes
 module.exports = {
     "id": "/node/schema/ortak/url_query",
     "$schema": "http://json-schema.org/draft-04/schema#",

@@ -8,7 +8,7 @@ module.exports = {
   "required": [
     "Id"
   ],
-  "additionalProperties": false,
+  "additionalProperties": true,
   /**
    * @class KalemDB
    */

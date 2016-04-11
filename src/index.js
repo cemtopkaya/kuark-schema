@@ -1,70 +1,58 @@
 var Ajv = require('ajv'),
+    _ = require('lodash'),
     ajvFilter = Ajv({removeAdditional: true}), // options can be passed
     ajv = Ajv({removeAdditional: false}), // options can be passed
 // Tüm schemalar
-    schemas = require('../schemas'),
-// defaults ile nesne yaratırken tüm şemaları bu objede toplayacağız.
+    /** @type {Schema_Sabitler} */
+    sema = require('../schemas'),
+    // defaults ile nesne yaratırken tüm şemaları bu objede toplayacağız.
     defaults = require('json-schema-defaults'),
-    definitons = {},
-    yuklenen_schema_sayisi = 0,
-    toplam_schema_sayisi = schemas.arr.length;
+    // tüm şemaların ID bilgilerini bu objenin propertysi gibi topluyoruz
+    definitons = {};
 
-schemas.arr.forEach(function (path) {
+sema.DOSYA_YOLLARI.forEach(function (_elm) {
     // defaults için definitions tanımlanmış olsun
-    var schema = require(path);
+    var schema = require(_elm);
     definitons[schema.title] = schema;
 
     // ajv'ye ekleyelim
     ajv.addSchema(schema);
     ajvFilter.addSchema(schema);
-    yuklenen_schema_sayisi++;
 });
 
-if (yuklenen_schema_sayisi != toplam_schema_sayisi) {
-    ssr = [{"yuklenen_schema_sayisi": yuklenen_schema_sayisi}, {"toplam_schema_sayisi": toplam_schema_sayisi}];
-}
-
-//require('../log/winstonConfig').error(JSON.stringify(definitons, null, '\t'))
-
-
-var f_dogrula = function (_tipi, _obj) {
+function f_dogrula(_tipi, _obj) {
     var valid = ajv.validate(_tipi, _obj);
     if (!valid) {
         console.error(ajv.errors);
     }
     return ajv.errors;
-};
+}
 
-var f_suz_dogrula_cevapla = function (_q, _r, _next, _tipi, _inObject) {
+function f_suz_dogrula_cevapla(_q, _r, _next, _tipi, _inObject) {
     var valErrs = f_suz_dogrula(_tipi, _inObject);
     if (valErrs) {
-        _next(mesaj.POST._400(valErrs, "Veri hatalı", "Bad request"));
+        _next({
+            code: 400,
+            title: "Veri hatalı",
+            message: "Geçersiz istek!",
+            data: valErrs
+        });
     }
     return valErrs;
-};
+}
 
-var f_suz_dogrula = function (_tipi, _inObject, _bProtectSource) {
+function f_suz_dogrula(_tipi, _inObject, _bProtectSource) {
 
-
-    //ssg = [{"_tipi":_tipi},{"_inObject":_inObject}];
-
-    if (_bProtectSource) {
-        return f_dogrula(_tipi, _inObject);
-    }
+    if (_bProtectSource) return f_dogrula(_tipi, _inObject);
 
     var valid = ajvFilter.validate(_tipi, _inObject);
 
-    if (!valid) {
-        console.error(ajvFilter.errors);
-    }
+    if (!valid) console.error(ajvFilter.errors);
 
-    /*else{
-     _inObject._ajvFiltered = _outObject;
-     }*/
     return ajvFilter.errors;
-};
+}
 
-var f_suz_klonla = function (_tipi, _inObject) {
+function f_suz_klonla(_tipi, _inObject) {
     var out;
     if (typeof _ !== "undefined") {
         out = _.clone(_inObject);
@@ -79,30 +67,40 @@ var f_suz_klonla = function (_tipi, _inObject) {
     }
 
     return out;
-};
+}
 
-var f_get_schema = function (_tipi) {
+/**
+ * ID li şemayı getirecek
+ * @param {SCHEMA_ID} _tipi
+ * @returns {Object}
+ */
+function f_get_schema(_tipi) {
     var tipinSemasi = ajv.getSchema(_tipi);
+
     if (tipinSemasi.errors) {
-        console.log("/////////////// Şema bulunamadı. Yine mi harf hatası var acaba \\\\\\\\\\\\\\");
+        console.error("/////////////// Şema bulunamadı. Yine mi harf hatası var acaba \\\\\\\\\\\\\\");
     } else {
         return tipinSemasi.schema;
     }
-};
+}
 
-var f_create_default_object = function (_tipi) {
+/**
+ * ID li şemadan default object yaratacak
+ * @param {SCHEMA_ID} _tipi
+ * @returns {Object}
+ */
+function f_create_default_object(_tipi) {
 
     return (typeof  _tipi === "string")
         ? defaults(f_get_schema(_tipi), definitons)
         : defaults(_tipi, definitons);
-};
+}
 
 //console.log(JSON.stringify(f_create_default_object("/node/schema/ortak/ihale_es")))
 //console.log(JSON.stringify(f_get_schema("/node/schema/ortak/ihale_es")))
 
-/**
- * @class schema
- */
+
+/** @class Schema */
 var result = {
     f_get_schema: f_get_schema,
     f_create_default_object: f_create_default_object,
@@ -114,7 +112,8 @@ var result = {
         ajv: ajv,
         ajvFilter: ajvFilter
     },
-    SCHEMA: schemas.SCHEMA,
+    /** @type {SCHEMA_ID} */
+    SCHEMA: sema.SCHEMA_ID,
     SABIT: {
         "OLAY": {
             GOREV_EKLENDI: "OLAYLAR:GOREV:EKLENDI",

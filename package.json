@@ -1,6 +1,6 @@
 {
   "name": "kuark-schema",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Kuark application's json schema",
   "main": "index.js",
   "repository": {
@@ -45,6 +45,7 @@
     "version:patch": "npm version patch  -m \" %s Versiyonu yapıldı\" --no-git-tag-version",
     "version:minor": "npm version minor",
     "version:major": "npm version major",
+    "vp": "npm run version:patch",
     "_______________________________________________________________ GIT": "_____________",
     "git:add": "git add -A",
     "git:commit": "git commit -m \"Otomatik mesaj\"",
@@ -54,7 +55,15 @@
     "_______________________________________________________________ PUBLISH": "__________",
     "prepublish": "",
     "publish": "",
-    "postpublish": ""
+    "postpublish": "npm run update:all",
+    "_______________________________________________________________ UPDATE KUARK PACKAGES": "__________",
+    "update:all": "npm run update-kuark-api && npm run update-kuark-batch && npm run update-kuark-db && npm run update-kuark-extensions && npm run update-kuark-istisna && npm run update-kuark-app",
+    "update-kuark-app": "ncu /^kuark-/ -u --packageFile ../../App/package.json && cd ../../App && npm update kuark-schema",
+    "update-kuark-api": "ncu /^kuark-/ -u --packageFile ../kuark-api/package.json && cd ../kuark-api && npm update kuark-schema",
+    "update-kuark-batch": "ncu /^kuark-/ -u --packageFile ../kuark-batch/package.json && cd ../kuark-batch && npm update kuark-schema",
+    "update-kuark-db": "ncu /^kuark-/ -u --packageFile ../kuark-db/package.json && cd ../kuark-db && npm update kuark-schema",
+    "update-kuark-extensions": "ncu /^kuark-/ -u --packageFile ../kuark-extensions/package.json && cd ../kuark-extensions && npm update kuark-schema",
+    "update-kuark-istisna": "ncu /^kuark-/ -u --packageFile ../kuark-istisna/package.json && cd ../kuark-istisna && npm update kuark-schema"
   },
   "devDependencies": {
     "chai": "3.5.0",

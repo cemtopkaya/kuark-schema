@@ -31,7 +31,10 @@ module.exports = {
       "default": 0
     },
     "IhaleProviders": {
-      "$ref": "#/definitions/IhaleProviders"
+      "type": "object",
+      "item": {
+        "$ref": "#/definitions/IhaleProviders"
+      }
     },
     "IhaleNo": {
       "type": "string"
