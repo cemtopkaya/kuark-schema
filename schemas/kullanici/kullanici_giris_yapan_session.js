@@ -59,7 +59,10 @@ module.exports = {
       "maxLength": 10
     },
     "Providers": {
-      "$ref": "#/definitions/LoginProviders"
+      "type": "object",
+      "item": {
+        "$ref": "#/definitions/LoginProviders"
+      }
     },
     "Tahtalari": {
       "type": "array",

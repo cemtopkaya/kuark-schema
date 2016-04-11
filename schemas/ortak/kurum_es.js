@@ -90,11 +90,17 @@ module.exports = {
     },
     /** @type {Sehir} */
     "Sehir": {
-      "$ref": "#/definitions/Sehir"
+      "type": "object",
+      "item": {
+        "$ref": "#/definitions/Sehir"
+      }
     },
     /** @type {Bolge} */
     "Bolge": {
-      "$ref": "#/definitions/Bolge"
+      "type": "object",
+      "item": {
+        "$ref": "#/definitions/Bolge"
+      }
     },
     /** @type {integer} */
     "Kurumdur": {

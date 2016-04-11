@@ -73,14 +73,6 @@ module.exports = {
         "UlkeAdi": {
             "type": "string"
         },
-       /* /!** @type {string} *!/
-        "IlAdi": {
-            "type": "string"
-        },
-        /!** @type {string} *!/
-        "BolgeAdi": {
-            "type": "string"
-        },*/
         /** @type {integer} */
         "Sehir_Id": {
             "type": "integer"

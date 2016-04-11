@@ -17,7 +17,7 @@ module.exports = {
     "FacebookAdresi": {},
     "TwitterAdi": {}
   }
-}
+};
 
 /*
 tahtanın üyelerini çek > 1,4,9

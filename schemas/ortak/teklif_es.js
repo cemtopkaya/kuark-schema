@@ -73,15 +73,24 @@ module.exports = {
         },
         /** @type {KurumDB} */
         "Kurum": {
-            "$ref": "#/definitions/KurumDB"
+            "type": "object",
+            "item": {
+                "$ref": "#/definitions/KurumDB"
+            }
         },
         /** @type {KalemDB} */
         "Kalem": {
-            "$ref": "#/definitions/KalemDB"
+            "type": "object",
+            "item": {
+                "$ref": "#/definitions/KalemDB"
+            }
         },
         /** @type {IhaleDB} */
         "Ihale": {
-            "$ref": "#/definitions/IhaleDB"
+            "type": "object",
+            "item": {
+                "$ref": "#/definitions/IhaleDB"
+            }
         }
     }
 };

@@ -92,7 +92,10 @@ module.exports = {
       "type": "integer"
     },
     "Kurum": {
-      "$ref": "#/definitions/KurumDB"
+      "type": "object",
+      "item": {
+        "$ref": "#/definitions/KurumDB"
+      }
     },
     "Kalemler": {
       "type": "array",
@@ -109,4 +112,4 @@ module.exports = {
       "default": []
     }
   }
-}
+};

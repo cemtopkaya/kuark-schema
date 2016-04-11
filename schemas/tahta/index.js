@@ -98,7 +98,10 @@ module.exports = {
         },
         /** @type {TahtaAjanda} */
         "Ajanda": {
-            "$ref": "#/definitions/TahtaAjanda"
+            "type": "object",
+            "item": {
+                "$ref": "#/definitions/TahtaAjanda"
+            }
         }
     }
 };

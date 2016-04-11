@@ -102,7 +102,10 @@ module.exports = {
         },
         /** @type {Kurum} */
         "Kurum": {
-            "$ref": "#/definitions/KurumDB"
+            "type": "object",
+            "item": {
+                "$ref": "#/definitions/KurumDB"
+            }
         },
         /** @type {KalemDB[]} */
         "Kalemler": {

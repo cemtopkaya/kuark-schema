@@ -62,7 +62,10 @@ module.exports = {
       "type": "string"
     },
     "Providers": {
-      "$ref": "#/definitions/LoginProviders",
+      "type": "object",
+      "item": {
+        "$ref": "#/definitions/LoginProviders"
+      },
       "default": {}
     },
     "Tahtalari": {

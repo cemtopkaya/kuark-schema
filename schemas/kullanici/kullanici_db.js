@@ -56,7 +56,10 @@ module.exports = {
     },
     /** @type {LoginProviders} */
     "Providers": {
-      "$ref": "#/definitions/LoginProviders",
+      "type": "object",
+      "item": {
+        "$ref": "#/definitions/LoginProviders"
+      },
       "default": {}
     }
   },

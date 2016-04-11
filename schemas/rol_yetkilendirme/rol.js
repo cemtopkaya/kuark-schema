@@ -33,7 +33,10 @@ module.exports = {
         },
         /** @type {Yetki} */
         "Yetki": {
-            "$ref": "#/definitions/Yetki"
+            "type": "object",
+            "item": {
+                "$ref": "#/definitions/Yetki"
+            }
         }
     }
 };

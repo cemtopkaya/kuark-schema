@@ -24,19 +24,31 @@ module.exports = {
   "properties": {
     /** @type {AD} */
     "AD": {
-      "$ref": "#/definitions/AD"
+      "type": "object",
+      "item": {
+        "$ref": "#/definitions/AD"
+      }
     },
     /** @type {TW} */
     "TW": {
-      "$ref": "#/definitions/TW"
+      "type": "object",
+      "item": {
+        "$ref": "#/definitions/TW"
+      }
     },
     /** @type {FB} */
     "FB": {
-      "$ref": "#/definitions/FB"
+      "type": "object",
+      "item": {
+        "$ref": "#/definitions/FB"
+      }
     },
     /** @type {GP} */
     "GP": {
-      "$ref": "#/definitions/GP"
+      "type": "object",
+      "item": {
+        "$ref": "#/definitions/GP"
+      }
     }
   }
 };

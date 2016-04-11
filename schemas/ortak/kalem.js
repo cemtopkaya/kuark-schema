@@ -30,7 +30,12 @@ module.exports = {
     /** @type {string} */
     "Birim": {"type": "string"},
     /** @type {OnayDurumu} */
-    "OnayDurumu": {"$ref": "#/definitions/OnayDurumu"},
+    "OnayDurumu": {
+      "type": "object",
+      "item": {
+        "$ref": "#/definitions/OnayDurumu"
+      }
+    },
     /** @type {TeklifDB[]} */
     "Teklifler": {
       "type": "array",
