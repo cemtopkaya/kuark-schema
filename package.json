@@ -1,6 +1,6 @@
 {
   "name": "kuark-schema",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "Kuark application's json schema",
   "main": "index.js",
   "repository": {
@@ -58,6 +58,7 @@
     "ncu:api": "ncu /^kuark-/ -u --packageFile ../kuark-api/package.json",
     "ncu:batch": "ncu /^kuark-/ -u --packageFile ../kuark-batch/package.json",
     "ncu:db": "ncu /^kuark-/ -u --packageFile ../kuark-db/package.json",
+    "u:all": "npm update kuark-api kuark-batch kuark-db kuark-extensions kuark-istisna kuark-app",
     "update:all": "npm run update-kuark-api && npm run update-kuark-batch && npm run update-kuark-db && npm run update-kuark-extensions && npm run update-kuark-istisna && npm run update-kuark-app",
     "update-kuark-app": "ncu /^kuark-/ -u --packageFile ../../App/package.json && cd ../../App && npm update kuark-schema",
     "update-kuark-api": "ncu /^kuark-/ -u --packageFile ../kuark-api/package.json && cd ../kuark-api && npm update kuark-schema",
