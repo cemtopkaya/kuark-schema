@@ -87,7 +87,7 @@ function f_get_schema(_tipi) {
 /**
  * ID li şemadan default object yaratacak
  * @param {SCHEMA_ID} _tipi
- * @returns {Object}
+ * @returns {*}
  */
 function f_create_default_object(_tipi) {
 

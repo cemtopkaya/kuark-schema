@@ -55,7 +55,7 @@ module.exports = {
             },
             "default": []
         },
-        /** @type {array} */
+        /** @type {string[]} */
         "Islemler": {
             "type": "array",
             "default": []

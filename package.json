@@ -1,6 +1,6 @@
 {
   "name": "kuark-schema",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Kuark application's json schema",
   "main": "index.js",
   "repository": {
@@ -51,15 +51,21 @@
     "_______________________________________________________________ PUBLISH": "__________",
     "1prepublish": "",
     "1publish": "",
-    "1postpublish": "",
+    "postpublish": "npm run update:all:packagejson",
     "_______________________________________________________________ UPDATE KUARK PACKAGES": "__________",
+    "update:all:packagejson": "npm run ncu:app && npm run ncu:api && npm run ncu:batch && npm run ncu:db",
+    "ncu:app": "ncu /^kuark-/ -u --packageFile ../../App/package.json",
+    "ncu:api": "ncu /^kuark-/ -u --packageFile ../kuark-api/package.json",
+    "ncu:batch": "ncu /^kuark-/ -u --packageFile ../kuark-batch/package.json",
+    "ncu:db": "ncu /^kuark-/ -u --packageFile ../kuark-db/package.json",
     "update:all": "npm run update-kuark-api && npm run update-kuark-batch && npm run update-kuark-db && npm run update-kuark-extensions && npm run update-kuark-istisna && npm run update-kuark-app",
     "update-kuark-app": "ncu /^kuark-/ -u --packageFile ../../App/package.json && cd ../../App && npm update kuark-schema",
     "update-kuark-api": "ncu /^kuark-/ -u --packageFile ../kuark-api/package.json && cd ../kuark-api && npm update kuark-schema",
     "update-kuark-batch": "ncu /^kuark-/ -u --packageFile ../kuark-batch/package.json && cd ../kuark-batch && npm update kuark-schema",
     "update-kuark-db": "ncu /^kuark-/ -u --packageFile ../kuark-db/package.json && cd ../kuark-db && npm update kuark-schema",
     "update-kuark-extensions": "ncu /^kuark-/ -u --packageFile ../kuark-extensions/package.json && cd ../kuark-extensions && npm update kuark-schema",
-    "update-kuark-istisna": "ncu /^kuark-/ -u --packageFile ../kuark-istisna/package.json && cd ../kuark-istisna && npm update kuark-schema"
+    "update-kuark-istisna": "ncu /^kuark-/ -u --packageFile ../kuark-istisna/package.json && cd ../kuark-istisna && npm update kuark-schema",
+    "update-kuark-schema": "ncu /^kuark-/ -u --packageFile ../kuark-schema/package.json && cd ../kuark-schema && npm update kuark-extensions"
   },
   "dependencies": {
     "ajv": "3.8.6",
