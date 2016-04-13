@@ -1,13 +1,13 @@
-/**
- * Created by cem.topkaya on 16.03.2016.
- */
+
 var expect = require('chai').expect,
+    extensions = require('kuark-extensions'),
     /** @type {Schema} */
     schema = require('../index');
 
 describe('Şemalar ulaşılabilir', function () {
 
     it('Şema objesine erişilebilir', function () {
+        extensions.ssg = [{"Calis bakalim": 1}];
         expect(schema.SCHEMA.DB.KURUM).to.eql("/node/schema/ortak/kurum_db");
     });
 
